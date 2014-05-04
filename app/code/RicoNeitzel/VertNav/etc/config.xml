@@ -32,11 +32,6 @@
                 <class>RicoNeitzel_VertNav_Model</class>
             </vertnav>
         </models>
-        <helpers>
-            <vertnav>
-                <class>RicoNeitzel_VertNav_Helper</class>
-            </vertnav>
-        </helpers>
     </global>
     <frontend>
         <layout>
@@ -47,17 +42,6 @@
             </updates>
         </layout>
     </frontend>
-    <adminhtml>
-        <translate>
-            <modules>
-                <RicoNeitzel_VertNav>
-                    <files>
-                        <default>RicoNeitzel_VertNav.csv</default>
-                    </files>
-                </RicoNeitzel_VertNav>
-            </modules>
-        </translate>
-    </adminhtml>
     <default>
         <catalog>
             <vertnav>

@@ -29,15 +29,15 @@ class RicoNeitzel_VertNav_Model_System_Config_Source_Root
         if (!isset($this->_options)) {
             $options = array(
                 array(
-                    'label' => Mage::helper('vertnav')->__('Store base'),
+                    'label' => __('Store base'),
                     'value' => 'root',
                 ),
                 array(
-                    'label' => Mage::helper('vertnav')->__('Current category children'),
+                    'label' => __('Current category children'),
                     'value' => 'current',
                 ),
                 array(
-                    'label' => Mage::helper('vertnav')->__('Same level as current category'),
+                    'label' => __('Same level as current category'),
                     'value' => 'siblings',
                 ),
             );
@@ -47,7 +47,7 @@ class RicoNeitzel_VertNav_Model_System_Config_Source_Root
             $maxDepth = $resource->getReadConnection()->fetchOne($select);
             for ($i = 2; $i < $maxDepth; $i++) {
                 $options[] = array(
-                    'label' => Mage::helper('vertnav')->__('Category Level %d', $i),
+                    'label' => __('Category Level %1', $i),
                     'value' => $i,
                 );
             }
