@@ -20,7 +20,7 @@
  */
 
 class RicoNeitzel_VertNav_Model_System_Config_Source_Root
-    extends Mage_Eav_Model_Entity_Attribute_Source_Abstract
+    extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
 {
     protected $_options;
 
