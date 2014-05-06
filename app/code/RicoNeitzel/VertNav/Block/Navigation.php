@@ -507,38 +507,6 @@ class RicoNeitzel_VertNav_Block_Navigation extends \Magento\Catalog\Block\Naviga
     }
 
     /**
-     * @param \Magento\Catalog\Model\Resource\Category\Collection $collection
-     *
-     * @return RicoNeitzel_VertNav_Block_Navigation
-     * @deprecated Now the count is added directly in _getCategoryChildren()
-     * @see        _getCategoryChildren()
-     */
-    protected function _addProductCount($collection)
-    {
-        if ($collection instanceof \Magento\Catalog\Model\Resource\Category\Collection) {
-            if ($collection->isLoaded()) {
-                $collection->loadProductCount($collection->getItems());
-            } else {
-                $collection->setLoadProductCount(true);
-            }
-        } else {
-            $this->_getProductCollectionResource()->addCountToCategories($collection);
-        }
-        return $this;
-    }
-
-    /**
-     * @return \Magento\Catalog\Model\Resource\Product\Collection
-     */
-    protected function _getProductCollectionResource()
-    {
-        if (null === $this->_productCollection) {
-            $this->_productCollection = $this->_productCollectionFactory->create();
-        }
-        return $this->_productCollection;
-    }
-
-    /**
      * @return bool
      */
     public function displayProductCount()
