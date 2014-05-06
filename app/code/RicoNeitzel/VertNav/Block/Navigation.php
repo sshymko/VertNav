@@ -109,60 +109,6 @@ class RicoNeitzel_VertNav_Block_Navigation extends \Magento\Catalog\Block\Naviga
     }
 
     /**
-     * check if we should hide the categories because of Netzarbeiter_LoginCatalog
-     * @return boolean
-     */
-    protected function _checkLoginCatalog()
-    {
-        return $this->_isLoginCatalogInstalledAndActive() && $this->_loginCatalogHideCategories();
-    }
-
-    /**
-     * Check if the Netzarbeiter_LoginCatalog extension is installed and active
-     * @return boolean
-     */
-    protected function _isLoginCatalogInstalledAndActive()
-    {
-        if ($node = Mage::getConfig()->getNode('modules/Netzarbeiter_LoginCatalog')) {
-            return strval($node->active) == 'true';
-        }
-        return false;
-    }
-
-    /**
-     * Check if the Netzarbeiter_LoginCatalog extension is configured to hide categories from logged out customers
-     * @return boolean
-     */
-    protected function _loginCatalogHideCategories()
-    {
-        if (
-            !$this->_customerSession->isLoggedIn() &&
-            Mage::helper('logincatalog')->moduleActive() &&
-            Mage::helper('logincatalog')->getConfig('hide_categories')
-        ) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * This method is only here to provide compatibility with the Netzarbeiter_LoginCatalog extension
-     *
-     * @param \Magento\Framework\Data\Tree\Node $category
-     * @param int                   $level
-     * @param bool                  $last
-     *
-     * @return string
-     */
-    public function drawItem($category, $level = 0, $last = false)
-    {
-        if ($this->_checkLoginCatalog()) {
-            return '';
-        }
-        return parent::drawItem($category, $level, $last);
-    }
-
-    /**
      * Add project specific formatting
      *
      * @param \Magento\Catalog\Model\Category $category
@@ -175,9 +121,6 @@ class RicoNeitzel_VertNav_Block_Navigation extends \Magento\Catalog\Block\Naviga
     {
         $html = array();
 
-        if ($this->_checkLoginCatalog()) {
-            return '';
-        }
         if (!$category->getIsActive()) {
             return '';
         }
