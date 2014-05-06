@@ -24,9 +24,9 @@
  */
 -->
 <layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../Magento/Core/etc/layout_single.xsd">
-    <reference name="catalog.leftnav">
+    <referenceBlock name="catalog.leftnav">
         <action method="unsetChild">
-            <name>category_filter</name>
+            <argument name="name" xsi:type="string">category_filter</argument>
         </action>
-    </reference>
+    </referenceBlock>
 </layout>

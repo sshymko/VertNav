@@ -402,9 +402,11 @@ class RicoNeitzel_VertNav_Block_Navigation extends \Magento\Catalog\Block\Naviga
         /**
          * Thanks to thebod for this patch!
          * It enables the setting of the category ID to use via Layout XML:
-         * <reference name="catalog.vertnav">
-         *    <action method="setCategoryId"><category_id>8</category_id></action>
-         * </reference>
+         * <referenceBlock name="catalog.vertnav">
+         *    <action method="setCategoryId">
+         *        <argument name="category_id" xsi:type="number">8</argument>
+         *    </action>
+         * </referenceBlock>
          */
         if ($customId = $this->getCategoryId()) {
             $parent = $customId;

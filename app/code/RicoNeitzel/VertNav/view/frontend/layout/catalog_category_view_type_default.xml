@@ -24,9 +24,5 @@
  */
 -->
 <layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../Magento/Core/etc/layout_single.xsd">
-    <reference name="left">
-        <action method="unsetChild">
-            <name>catalog.leftnav</name>
-        </action>
-    </reference>
+    <remove name="catalog.leftnav"/>
 </layout>
