@@ -21,18 +21,6 @@
  */
  -->
 <config>
-    <global>
-        <blocks>
-            <vertnav>
-                <class>RicoNeitzel_VertNav_Block</class>
-            </vertnav>
-        </blocks>
-        <models>
-            <vertnav>
-                <class>RicoNeitzel_VertNav_Model</class>
-            </vertnav>
-        </models>
-    </global>
     <frontend>
         <layout>
             <updates>

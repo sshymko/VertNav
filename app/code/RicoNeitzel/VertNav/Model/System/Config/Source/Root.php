@@ -22,7 +22,20 @@
 class RicoNeitzel_VertNav_Model_System_Config_Source_Root
     extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
 {
+    /**
+     * @var \Magento\Catalog\Model\Resource\Category
+     */
+    protected $_categoryResource;
+
     protected $_options;
+
+    /**
+     * @param \Magento\Catalog\Model\Resource\Category $categoryResource
+     */
+    public function __construct(\Magento\Catalog\Model\Resource\Category $categoryResource)
+    {
+        $this->_categoryResource = $categoryResource;
+    }
 
     public function toOptionArray()
     {
@@ -41,7 +54,7 @@ class RicoNeitzel_VertNav_Model_System_Config_Source_Root
                     'value' => 'siblings',
                 ),
             );
-            $resource = Mage::getModel('catalog/category')->getResource();
+            $resource = $this->_categoryResource;
             $select = $resource->getReadConnection()->select()->reset()
                 ->from($resource->getTable('catalog/category'), new Zend_Db_Expr('MAX(`level`)'));
             $maxDepth = $resource->getReadConnection()->fetchOne($select);
