@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0).
+ * It is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ *
+ * @category   RicoNeitzel
+ * @package    RicoNeitzel_VertNav
+ * @copyright  Copyright (c) 2011 Vinai Kopp http://netzarbeiter.com/
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/system_file.xsd">
+    <system>
+        <section id="catalog">
+            <group id="vertnav" translate="label" type="text" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Category Vertical Navigation</label>
+                <field id="hide_vertnav" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hide Vertical Navigation</label>
+                    <source_model>Magento\Backend\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="hide_top" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hide Top Navigation</label>
+                    <source_model>Magento\Backend\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_product_count" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Product Count</label>
+                    <source_model>Magento\Backend\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="expand_all" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Expand all categories</label>
+                    <source_model>Magento\Backend\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="expand_all_max_depth" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Expand all max depth</label>
+                    <comment>Leave empty or set to 0 for no limit</comment>
+                </field>
+                <field id="show_cat_on_toplevel" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Expand on Top Level</label>
+                    <source_model>Magento\Backend\Model\Config\Source\Yesno</source_model>
+                    <comment>If your product is top level requested without a category path should VertNav expand the category listing to the first associated product category.</comment>
+                </field>
+                <field id="vertnav_root" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Expand all categories</label>
+                    <source_model>RicoNeitzel_VertNav_Model_System_Config_Source_Root</source_model>
+                </field>
+                <field id="fallback_to_root" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Fallback to store base</label>
+                    <comment>If no current category is selected</comment>
+                    <source_model>Magento\Backend\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
