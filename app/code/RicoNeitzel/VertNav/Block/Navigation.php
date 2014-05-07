@@ -40,7 +40,7 @@ class RicoNeitzel_VertNav_Block_Navigation extends \Magento\Catalog\Block\Naviga
     protected $_categoryFactory;
 
     /**
-     * @var \Magento\Catalog\Model\LayerFactory
+     * @var \Magento\Catalog\Model\Layer\CategoryFactory
      */
     protected $_catalogLayerFactory;
 
@@ -61,7 +61,7 @@ class RicoNeitzel_VertNav_Block_Navigation extends \Magento\Catalog\Block\Naviga
      * @param \Magento\Framework\Registry $registry
      * @param \Magento\Catalog\Model\Indexer\Category\Flat\State $flatState
      * @param \Magento\Customer\Model\Session $customerSession
-     * @param \Magento\Catalog\Model\LayerFactory $catalogLayerFactory
+     * @param \Magento\Catalog\Model\Layer\CategoryFactory $catalogLayerFactory
      * @param \Magento\Catalog\Model\Resource\Category\CollectionFactory $categoryCollectionFactory
      * @param array $data
      */
@@ -75,7 +75,7 @@ class RicoNeitzel_VertNav_Block_Navigation extends \Magento\Catalog\Block\Naviga
         \Magento\Framework\Registry $registry,
         \Magento\Catalog\Model\Indexer\Category\Flat\State $flatState,
         \Magento\Customer\Model\Session $customerSession,
-        \Magento\Catalog\Model\LayerFactory $catalogLayerFactory,
+        \Magento\Catalog\Model\Layer\CategoryFactory $catalogLayerFactory,
         \Magento\Catalog\Model\Resource\Category\CollectionFactory $categoryCollectionFactory,
         array $data = array()
     ) {
