@@ -32,21 +32,13 @@
         </block>
     </referenceBlock>
 
-    <move element="catalog.topnav" destination="topnav_wrapper"/>
+    <!-- Make top navigation depend on the system configuration -->
+    <remove name="catalog.topnav"/>
     <referenceContainer name="page_top">
-        <block class="Magento\Framework\View\Element\Text\ListText" name="topnav_wrapper" before="catalog.topnav">
-            <action method="unsetChild" ifconfig="catalog/vertnav/hide_top">
-                <argument name="name" xsi:type="string">catalog.topnav</argument>
-            </action>
-        </block>
+        <block class="Magento\Theme\Block\Html\Topmenu" name="catalog.topnav.conditional" template="html/topmenu.phtml" ttl="3600" before="catalog.topnav" ifconfig="catalog/vertnav/show_topnav"/>
     </referenceContainer>
 
     <referenceContainer name="left">
-        <block class="Magento\Framework\View\Element\Text\ListText" name="vertnav_wrapper" before="-">
-            <block class="RicoNeitzel_VertNav_Block_Navigation" name="catalog.vertnav" template="RicoNeitzel_VertNav::left.phtml"/>
-            <action method="unsetChild" ifconfig="catalog/vertnav/hide_vertnav">
-                <argument name="name" xsi:type="string">catalog.vertnav</argument>
-            </action>
-        </block>
+        <block class="RicoNeitzel_VertNav_Block_Navigation" name="catalog.vertnav" template="RicoNeitzel_VertNav::left.phtml" ifconfig="catalog/vertnav/show_vertnav"/>
     </referenceContainer>
 </layout>

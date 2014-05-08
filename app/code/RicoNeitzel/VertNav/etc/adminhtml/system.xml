@@ -25,12 +25,12 @@
         <section id="catalog">
             <group id="vertnav" translate="label" type="text" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Category Vertical Navigation</label>
-                <field id="hide_vertnav" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Hide Vertical Navigation</label>
+                <field id="show_vertnav" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Vertical Navigation</label>
                     <source_model>Magento\Backend\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="hide_top" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Hide Top Navigation</label>
+                <field id="show_topnav" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Top Navigation</label>
                     <source_model>Magento\Backend\Model\Config\Source\Yesno</source_model>
                 </field>
                 <field id="display_product_count" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
