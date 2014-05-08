@@ -3,7 +3,7 @@ Vertical Navigation with CSS Classes
 Vertical Category Navigation with subcategories, fine css classes and backend configuration.
 
 <p>With this extension you're able to design you own vertical category navigation with subcategories and product count display. Each element has a fine css'ing so you can address each element or group exactly including "first" and "last" element per group and "previos", "active" and "next" child.</p>
-<p>By default the module removes the top.navigation via XML-Update and places the vertical nav in "left" structural block.</p>
+<p>By default the module removes the "catalog.topnav" block via XML-Update and places the vertical nav in "left" container.</p>
 <p>Several options can be controlled in your AdminPanel under <strong>system -> configuration -> catalog</strong> as per StoreView:</p>
 <ul>
 <li>Hide Vertical Navigation (yes/no)</li>
@@ -15,13 +15,14 @@ Vertical Category Navigation with subcategories, fine css classes and backend co
 <li>Root Categories (Store base, current Category, Same Level as current Category, Category Level 2, Category Level 3)</li>
 <li>Fallback to store base (yes/no)</li>
 </ul>
-<p>You should modify the vertnav.css-file in your skin folder to fit your needs. (Please note: do not change the base/default skin file! The delivered CSS file is for showcase purposes only!)</p>
+<p>You should create the 'RicoNeitzel_VertNav/style.css' file in your theme folder to override the built-in styles. (Please note: do not modify the 'style.css' file provided with the module! It is for showcase purposes only!)</p>
 
 <h2>Credits</h2>
-<p>Rico Neitzel, Vinai Kopp, Raúl Fishman</p>
+<p>Rico Neitzel, Vinai Kopp, Raúl Fishman, Sergii Shymko</p>
 
 <h2>Change Log</h2>
 <ul>
+<li><strong>v2.0.0:</strong> Compatibility with Magento 2.0.0.0-dev75 (incompatible with Magento 1.x)</li>
 <li><strong>v0.4.3:</strong> Added 'empty' CSS class for categories without products (Thanks Sija via GitHub)</li>
 <li><strong>v0.4.2:</strong> Added Portuguese Locale (Thanks Raúl Fishman)</li>
 <li><strong>v0.4.1:</strong> Added Feature <strong>Disable on StoreView Base</strong></li>
