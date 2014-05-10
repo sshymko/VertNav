@@ -1,12 +1,21 @@
-.vertnav-container {
-	margin-top:10px;
+.vertnav-container .no-display {
+    display:none;
+}
+
+.vertnav-container ul {
+    list-style-type:none;
+    padding:0;
+    margin:0;
+}
+
+#vertnav li {
+    margin-bottom:0;
 }
 
 #vertnav li .vertnav-cat {
 	display:block;
 	border-bottom:1px dotted gray;
 	padding:3px;
-	width:189px;
 }
 
 #vertnav li a {
@@ -52,15 +61,12 @@
 
 #vertnav .level1 .vertnav-cat {
 	padding-left:10px;
-	width:182px;
 }
 
 #vertnav .level2 .vertnav-cat {
 	padding-left:20px;
-	width:172px;
 }
 
 #vertnav .level3 .vertnav-cat {
 	padding-left:30px;
-	width:162px;
 }
