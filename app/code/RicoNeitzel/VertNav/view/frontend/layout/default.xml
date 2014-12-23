@@ -23,11 +23,11 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 -->
-<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../Magento/Core/etc/layout_single.xsd">
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/layout_generic.xsd">
     <referenceBlock name="head">
         <block class="Magento\Theme\Block\Html\Head\Css" name="riconeitzel-vertnav-style-css">
             <arguments>
-                <argument name="file" xsi:type="string">RicoNeitzel_VertNav::style.css</argument>
+                <argument name="file" xsi:type="string">RicoNeitzel_VertNav::css/style.css</argument>
             </arguments>
         </block>
     </referenceBlock>
@@ -39,6 +39,6 @@
     </referenceContainer>
 
     <referenceContainer name="left">
-        <block class="RicoNeitzel_VertNav_Block_Navigation" name="catalog.vertnav" template="RicoNeitzel_VertNav::left.phtml" ifconfig="catalog/vertnav/show_vertnav"/>
+        <block class="RicoNeitzel\VertNav\Block\Navigation" name="catalog.vertnav" template="RicoNeitzel_VertNav::left.phtml" ifconfig="catalog/vertnav/show_vertnav"/>
     </referenceContainer>
 </layout>

@@ -52,7 +52,7 @@
                 </field>
                 <field id="vertnav_root" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Expand all categories</label>
-                    <source_model>RicoNeitzel_VertNav_Model_System_Config_Source_Root</source_model>
+                    <source_model>RicoNeitzel\VertNav\Model\System\Config\Source\Root</source_model>
                 </field>
                 <field id="fallback_to_root" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Fallback to store base</label>

@@ -18,7 +18,7 @@
  * @copyright  Copyright (c) 2011 Vinai Kopp http://netzarbeiter.com/
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-
+namespace RicoNeitzel\VertNav\Block;
 
 /**
  * Catalog vertical navigation
@@ -27,7 +27,7 @@
  * @package    RicoNeitzel_VertNav
  * @author     Vinai Kopp <vinai@netzarbeiter.com>
  */
-class RicoNeitzel_VertNav_Block_Navigation extends \Magento\Catalog\Block\Navigation
+class Navigation extends \Magento\Catalog\Block\Navigation
 {
     /**
      * @var \Magento\Customer\Model\Session
@@ -100,10 +100,14 @@ class RicoNeitzel_VertNav_Block_Navigation extends \Magento\Catalog\Block\Naviga
     public function getCacheKey()
     {
         $key = parent::getCacheKey();
+
         $customerGroupId = $this->_getCustomerGroupId();
-        $productId = $this->_registry->registry('current_product') ? $this->_registry->registry('current_product')->getId() : 0;
-        $homePageId = $this->_getStoreConfigValue(\Magento\Cms\Helper\Page::XML_PATH_HOME_PAGE);
-        $cmsPageId = $this->getRequest()->getParam('page_id', $homePageId);
+
+        /** @var \Magento\Catalog\Model\Product $currentProduct */
+        $currentProduct = $this->_registry->registry('current_product');
+        $productId      = $currentProduct ? $currentProduct->getId() : 0;
+        $homePageId     = $this->_getStoreConfigValue(\Magento\Cms\Helper\Page::XML_PATH_HOME_PAGE);
+        $cmsPageId      = $this->getRequest()->getParam('page_id', $homePageId);
 
         return 'VERTNAV_' . $key . '_' . $customerGroupId . '_' . $productId . '_' . $cmsPageId;
     }
@@ -429,12 +433,13 @@ class RicoNeitzel_VertNav_Block_Navigation extends \Magento\Catalog\Block\Naviga
     }
 
     /**
-     * $childrenIdString is a comma seperated list of category IDs
+     * $childrenIdString is a comma separated list of category IDs
      * @return \Magento\Catalog\Model\Resource\Category\Collection
      */
     protected function _getCategoryCollection()
     {
         $collection = $this->_categoryCollectionFactory->create();
+
         /* @var $collection \Magento\Catalog\Model\Resource\Category\Collection */
         $collection->addAttributeToSelect('url_key')
             ->addAttributeToSelect('name')
