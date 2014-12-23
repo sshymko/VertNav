@@ -19,13 +19,15 @@
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
+namespace RicoNeitzel\VertNav\Block\Plugin;
+
 /**
  * Plugin that provides compatibility with Netzarbeiter_LoginCatalog extension
  */
-class RicoNeitzel_VertNav_Block_Plugin_LoginCatalog
+class LoginCatalog
 {
     /**
-     * @var \Magento\Framework\ObjectManager
+     * @var \Magento\Framework\App\ObjectManager
      */
     protected $_objectManager;
 
@@ -40,12 +42,12 @@ class RicoNeitzel_VertNav_Block_Plugin_LoginCatalog
     protected $_customerSession;
 
     /**
-     * @param \Magento\Framework\ObjectManager $objectManager
+     * @param \Magento\Framework\App\ObjectManager $objectManager
      * @param \Magento\Framework\Module\Manager $moduleManager
      * @param \Magento\Customer\Model\Session $customerSession
      */
     public function __construct(
-        \Magento\Framework\ObjectManager $objectManager,
+        \Magento\Framework\App\ObjectManager $objectManager,
         \Magento\Framework\Module\Manager $moduleManager,
         \Magento\Customer\Model\Session $customerSession
     ) {
@@ -57,7 +59,7 @@ class RicoNeitzel_VertNav_Block_Plugin_LoginCatalog
     /**
      * Suppress rendering according to Netzarbeiter_LoginCatalog's business logic
      *
-     * @param RicoNeitzel_VertNav_Block_Navigation $subject
+     * @param \RicoNeitzel\VertNav\Block\Navigation $subject
      * @param callable $proceed
      * @param \Magento\Catalog\Model\Category $category
      * @param integer $level
@@ -66,7 +68,7 @@ class RicoNeitzel_VertNav_Block_Plugin_LoginCatalog
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function aroundDrawOpenCategoryItem(
-        RicoNeitzel_VertNav_Block_Navigation $subject,
+        \RicoNeitzel\VertNav\Block\Navigation $subject,
         \Closure $proceed,
         $category,
         $level = 0,
@@ -84,7 +86,7 @@ class RicoNeitzel_VertNav_Block_Plugin_LoginCatalog
      */
     protected function _isLoginCatalogInstalledAndActive()
     {
-        return $this->_moduleManager->isEnabled('Netzarbeiter_LoginCatalog');
+        return $this->_moduleManager->isEnabled('Netzarbeiter\LoginCatalog');
     }
 
     /**
@@ -93,8 +95,8 @@ class RicoNeitzel_VertNav_Block_Plugin_LoginCatalog
      */
     protected function _loginCatalogHideCategories()
     {
-        /** @var Netzarbeiter_LoginCatalog_Helper_Data $loginCatalog */
-        $loginCatalog = $this->_objectManager->get('Netzarbeiter_LoginCatalog_Helper_Data');
+        /** @var \Netzarbeiter\LoginCatalog\Helper\Data $loginCatalog */
+        $loginCatalog = $this->_objectManager->get('Netzarbeiter\LoginCatalog\Helper\Data');
         return !$this->_customerSession->isLoggedIn()
             && $loginCatalog->moduleActive()
             && $loginCatalog->getConfig('hide_categories');

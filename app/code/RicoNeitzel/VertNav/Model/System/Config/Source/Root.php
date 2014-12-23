@@ -19,8 +19,9 @@
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-class RicoNeitzel_VertNav_Model_System_Config_Source_Root
-    extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
+namespace RicoNeitzel\VertNav\Model\System\Config\Source;
+
+class Root extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
 {
     /**
      * @var \Magento\Catalog\Model\Resource\Category
@@ -56,7 +57,7 @@ class RicoNeitzel_VertNav_Model_System_Config_Source_Root
             );
             $resource = $this->_categoryResource;
             $select = $resource->getReadConnection()->select()->reset()
-                ->from($resource->getTable('catalog_category_entity'), new Zend_Db_Expr('MAX(`level`)'));
+                ->from($resource->getTable('catalog_category_entity'), new \Zend_Db_Expr('MAX(`level`)'));
             $maxDepth = $resource->getReadConnection()->fetchOne($select);
             for ($i = 2; $i < $maxDepth; $i++) {
                 $options[] = array(
